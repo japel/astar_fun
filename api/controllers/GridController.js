@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Created by japel on 19.01.17.
  */
@@ -13,8 +15,6 @@ let GridController = {
    * @returns {*}
    */
   index: function (req, res) {
-    "use strict";
-
     let x = parseInt(req.query.x) || 15;
     let y = parseInt(req.query.y) || 15;
 
@@ -26,7 +26,7 @@ let GridController = {
         print: false,
         width: y,
         height: x,
-        target:{
+        target: {
           y: rk,
           x: rj
         }
@@ -67,7 +67,6 @@ let GridController = {
    * @returns [Number[]]
    */
   path: function (req, res) {
-    "use strict";
     if (!req.body.startX || !req.body.startY || !req.body.targetX || !req.body.targetY || !req.body.matrix) {
       return res.serverError("invalid request parameters sent");
     }
@@ -102,10 +101,7 @@ let GridController = {
    * @returns {*}
    */
   dosomethingfunonfinish: function (req, res) {
-    "use strict";
-
     return res.ok(arduinoService.fadeIn({}));
-
   },
 };
 

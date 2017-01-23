@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Created by japel on 20.01.17.
  */
@@ -7,31 +8,27 @@ const five = require('johnny-five');
 let arduinoService = {
   fadeIn: function (opts) {
     "use strict";
-if(process.env.ARDUINO){
-  var led = new five.Led(11);
-  led.fadeIn();
+    if (process.env.ARDUINO) {
+      let led = new five.Led(11);
+      led.fadeIn();
 
-  setTimeout(() => {
-    led.fadeOut();
-  }, 2000);
+      setTimeout(() => {
+        led.fadeOut();
+      }, 2000);
 
-  return {
-    ok:true
-  };
-}
-else{
-  return {
-    "simulation": "imagine your led connected to D11 on Arduino board would now fade in 2000ms"
-  };
-}
-
-
-
-
+      return {
+        ok: true
+      };
+    }
+    else {
+      return {
+        "simulation": "imagine your led connected to D11 on Arduino board would now fade in 2000ms"
+      };
+    }
   },
   connect: function (cb) {
     "use strict";
-    var board = new five.Board({repl: false});
+    let board = new five.Board({repl: false});
 
     board.on("ready", function () {
       sails.config.arduino = {};

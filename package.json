@@ -6,8 +6,11 @@
   "keywords": [],
   "dependencies": {
     "async": "2.0.1",
+    "docker-build-run-push": "^3.0.0",
     "grunt": "1.0.1",
+    "johnny-five": "^0.10.6",
     "lodash": "^3.10.1",
+    "pathfinding": "^0.4.18",
     "sails": "^1.0.0-19",
     "sails-hook-grunt": "^1.0.4",
     "sails-hook-orm": "^2.0.0-0",
@@ -16,7 +19,10 @@
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "test": "echo && echo \"* * * * * * * * * * * * * * * * * * * * * * * * * * * \" && echo \"About to run tests...\" && echo && if ! node ./node_modules/mocha/bin/mocha --timeout 10000 ; then echo && echo && echo \"- - -\" && echo \"Looks like something went wrong.\" && echo \"|  If you are not sure what to do next, try:\" && echo \"|  npm install mocha --save-dev\" && echo \"|  \" && echo \"|  And then:\" && echo \"|  mkdir test/\" && echo ; fi",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "docker-build": "rm -rf node_modules && npm install && docker-build",
+    "docker-run": "docker-run",
+    "docker-push": "docker-push"
   },
   "main": "app.js",
   "repository": {
