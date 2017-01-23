@@ -1,0 +1,18 @@
+<!-- this template generates the grid -->
+<div class="divTable" style="border: 1px solid #000;" >
+    <% for(var i=0; i < x; i++) { %>
+    <div class="divTableRow">
+        <% for(var j=0; j < y; j++) { %>
+        <div class="divTableCell"
+             style="<%= matrix[i][j] ? "background-color:salmon !important" :(target[0]===i && target[1]===j) ? "background-color:lightblue !important" : "" %>"
+             id="<%=i %>_<%=j %>"
+             onClick="getPath(<%=j %>,<%=i %>, <%=target[1]%>, <%=target[0]%>,<%= JSON.stringify(matrix) %>)"
+        oncontextmenu="getPath(<%=j %>,<%=i %>, <%=target[1]%>, <%=target[0]%>,<%= JSON.stringify(matrix) %>,true);return false;">
+        </div>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+
+<div id="dialog" title="hire me!" style="display:none"><img src="http://i.giphy.com/3um8lDuxme7cI.gif"></div>
+
